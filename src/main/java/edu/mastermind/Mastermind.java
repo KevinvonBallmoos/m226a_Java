@@ -62,6 +62,7 @@ public class Mastermind {
      * Mastermind validating rules are:
      * 4 chars
      * colors and position matches with randomcode
+     *
      * @param input from userInput
      */
     public static boolean userInputvalidate(String input) {
