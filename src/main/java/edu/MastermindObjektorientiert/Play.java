@@ -11,12 +11,6 @@ public class Play {
     UserInputValidate userInputValidate;
     CompareInput compareInput;
 
-    private char[] sent = new char[4];
-
-    public char[] getSent() {
-        return sent;
-    }
-
     public void play() {
 
         userInput = new UserInput();
@@ -24,8 +18,7 @@ public class Play {
         userInputValidate = new UserInputValidate();
         compareInput = new CompareInput();
 
-        sent[0] = randomCode.randomChars();
-        System.out.println(sent);
+        randomCode.randomChars();
 
         while (compareInput.getTriesLeft() > 0) {
             String input;

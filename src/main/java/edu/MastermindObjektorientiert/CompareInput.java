@@ -15,14 +15,13 @@ public class CompareInput {
 
     public boolean inputCompare() {
 
-
         randomCode = new RandomCode();
         play = new Play();
         boolean win = false;
         System.out.println(Arrays.toString(randomCode.getRandomColors()));
         System.out.println(Arrays.toString(userInputValidate.getUserGuess()));
 
-        if (Arrays.equals(userInputValidate.getUserGuess(), play.getSent())){
+        if (Arrays.equals(userInputValidate.getUserGuess(), randomCode.getRandomColors())){
             System.out.println("Code war richtig" + "\n" + "Herzliche Gratulation du gewinnst");
             win = true;
         } else if (this.triesLeft > 0) {

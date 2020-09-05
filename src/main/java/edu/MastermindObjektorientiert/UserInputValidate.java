@@ -4,10 +4,8 @@ import java.util.Arrays;
 
 public class UserInputValidate {
 
-    private  char[] userGuess = new char[4];
-    RandomCode randomCode = new RandomCode();
-
-
+    private final char[] userGuess = new char[4];
+    RandomCode randomCode;
 
     /**
      * Mastermind validating rules are:
@@ -17,15 +15,16 @@ public class UserInputValidate {
      * @param input from userInput
      */
     public boolean userInputvalidate(String input) {
+        randomCode = new RandomCode();
 
         int validColors = 0;
 
-
+        System.out.println(randomCode.getRandomColors());
         if (input.length() > randomCode.getRandomColors().length || input.length() < randomCode.getRandomColors().length) {
             System.out.println("Eingabe nicht gültig");
             return false;
         } else {
-            this.userGuess = new char[input.length()];
+
             for (int i = 0; i < input.length(); i++) {
                 this.userGuess[i] = input.charAt(i);
             }
@@ -42,8 +41,9 @@ public class UserInputValidate {
         return validColors >= 4;
 
     }
+
     public char[] getUserGuess() {
-        return userGuess;
+        return Arrays.copyOf(userGuess, userGuess.length);
     }
 
 }
