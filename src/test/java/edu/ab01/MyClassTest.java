@@ -21,6 +21,7 @@ class MyClassTest {
     @Test
     void calcDivision() {
         assertEquals(10, myClass.calcDivision(50,5));
+        assertEquals(5, myClass.calcDivision(50,10));
     }
 
 
