@@ -6,6 +6,10 @@ public class UserInput {
 
     public Scanner input;
 
+    public Scanner getInput() {
+        return input;
+    }
+
     public UserInput(){
 
         this.input = new Scanner(System.in);
@@ -17,4 +21,5 @@ public class UserInput {
         return this.input.nextLine();
 
     }
+
 }

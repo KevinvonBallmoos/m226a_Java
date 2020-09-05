@@ -1,9 +1,13 @@
 package edu.MastermindObjektorientiert;
 
+import java.util.Arrays;
+
 public class UserInputValidate {
 
-    public  char[] userGuess = new char[4];
+    private  char[] userGuess = new char[4];
     RandomCode randomCode = new RandomCode();
+
+
 
     /**
      * Mastermind validating rules are:
@@ -21,9 +25,9 @@ public class UserInputValidate {
             System.out.println("Eingabe nicht gültig");
             return false;
         } else {
-            userGuess = new char[input.length()];
+            this.userGuess = new char[input.length()];
             for (int i = 0; i < input.length(); i++) {
-                userGuess[i] = input.charAt(i);
+                this.userGuess[i] = input.charAt(i);
             }
 
             for (char k : userGuess) {
@@ -36,6 +40,10 @@ public class UserInputValidate {
 
         }
         return validColors >= 4;
+
+    }
+    public char[] getUserGuess() {
+        return userGuess;
     }
 
 }

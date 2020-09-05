@@ -24,6 +24,7 @@ public class Mastermind {
 
     public static void game() {
         randomcode();
+        System.out.println(Arrays.toString(randomColors));
 
         while (triesLeft > 0) {
             String input;
