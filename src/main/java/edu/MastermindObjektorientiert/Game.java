@@ -4,7 +4,7 @@ public class Game {
 
     public static void main(String[] args) {
 
-        Play play = new Play();
-        play.play();
+    Play start = new Play();
+        start.play();
     }
 }

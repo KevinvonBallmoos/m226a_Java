@@ -1,49 +1,46 @@
 package edu.MastermindObjektorientiert;
 
+/**
+ * Mastermind validating rules are:
+ * 4 chars
+ * colors and position matches with randomcode
+ * @param input from userInput
+ */
+
 import java.util.Arrays;
+import java.util.RandomAccess;
 
 public class UserInputValidate {
 
-    private final char[] userGuess = new char[4];
-    RandomCode randomCode;
+    Play colors;
+    RandomCode randomColors;
+    CompareInput compareInput;
 
-    /**
-     * Mastermind validating rules are:
-     * 4 chars
-     * colors and position matches with randomcode
-     *
-     * @param input from userInput
-     */
     public boolean userInputvalidate(String input) {
-        randomCode = new RandomCode();
 
         int validColors = 0;
 
-        System.out.println(randomCode.getRandomColors());
-        if (input.length() > randomCode.getRandomColors().length || input.length() < randomCode.getRandomColors().length) {
+        randomColors = new RandomCode();
+        if (input.length() > randomColors.getRandomColors().length || input.length() < randomColors.getRandomColors().length) {
             System.out.println("Eingabe nicht gültig");
             return false;
         } else {
 
+            compareInput = new CompareInput();
+
             for (int i = 0; i < input.length(); i++) {
-                this.userGuess[i] = input.charAt(i);
+                compareInput.getUserGuess()[i] = input.charAt(i);
             }
 
-            for (char k : userGuess) {
-                for (char color : randomCode.getColors()) {
+            colors = new Play();
+            for (char k : compareInput.getUserGuess()) {
+                for (char color : colors.getColors()) {
                     if (k == color) {
                         validColors++;
                     }
                 }
             }
-
         }
         return validColors >= 4;
-
     }
-
-    public char[] getUserGuess() {
-        return Arrays.copyOf(userGuess, userGuess.length);
-    }
-
 }
