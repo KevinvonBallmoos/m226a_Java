@@ -4,13 +4,9 @@ import java.util.Arrays;
 
 public class CompareInput {
 
-    RandomCode randomColors;
-    private int triesLeft = 10;
-    private final char[] userGuess = new char[4];
 
-    public char[] getUserGuess() {
-        return userGuess;
-    }
+    private int triesLeft = 10;
+
 
     public int getTriesLeft() {
         return triesLeft;
@@ -21,12 +17,15 @@ public class CompareInput {
      * if color and position is right 1 point
      * if color is right but position not 1 point
      */
+
     public boolean inputCompare() {
         boolean win = false;
 
-        randomColors = new RandomCode();
 
-        if (Arrays.equals(userGuess, randomColors.getRandomColors())) {
+        Play colors = new Play();
+        UserInputValidate guessOfUser = new UserInputValidate();
+
+        if (Arrays.equals(guessOfUser.getUserGuess(), colors.getCopyOfColorArray())) {
             System.out.println("Code war richtig" + "\n" + "Herzliche Gratulation du gewinnst");
             win = true;
         } else if (triesLeft > 0) {
@@ -34,16 +33,16 @@ public class CompareInput {
             int equalColorButWrongPosition = 0;
 
 
-            for (int i = 0; i < randomColors.getRandomColors().length; i++) {
-                if (userGuess[i] == randomColors.getRandomColors()[i]) {
+            for (int i = 0; i < colors.getCopyOfColorArrayLength(); i++) {
+                if (guessOfUser.getUserGuess()[i] == colors.getCopyOfColorArray()[i]) {
                     equalColorAndPosition++;
                 }
             }
 
-            for (char k : userGuess)
-                for (int i = 0; i < randomColors.getRandomColors().length; i++) {
+            for (char k : guessOfUser.getUserGuess())
+                for (int i = 0; i < colors.getCopyOfColorArrayLength(); i++) {
 
-                    if (k == randomColors.getRandomColors()[i] && userGuess[i] != randomColors.getRandomColors()[i]) {
+                    if (k == colors.getCopyOfColorArray()[i] && guessOfUser.getUserGuess()[i] != colors.getCopyOfColorArray()[i]) {
                         equalColorButWrongPosition++;
                     }
                 }
@@ -53,7 +52,7 @@ public class CompareInput {
             this.triesLeft--;
             System.out.println("Neuer Versuch." + "\n" + "Ubrige Versuche: " + this.triesLeft);
         } else if (this.triesLeft == 0) {
-            System.out.println("Spiel beendet. Geheimcode war " + String.valueOf(randomColors.getRandomColors()));
+            System.out.println("Spiel beendet. Geheimcode war " + String.valueOf(colors.getCopyOfColorArray()));
         }
         return win;
     }

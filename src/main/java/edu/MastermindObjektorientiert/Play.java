@@ -5,25 +5,38 @@ import java.util.Arrays;
 public class Play {
 
     private final char[] colors = new char[]{'r', 'g', 'b', 'w', 's', 'y'};
+    private char[] CopyOfColorArray = new char[4];
+
     RandomCode randomCode;
     CompareInput compareInput;
     UserInput userInput;
     UserInputValidate userInputValidate;
 
+    public char[] getCopyOfColorArray() {
+        return CopyOfColorArray;
+    }
+
+    public int getCopyOfColorArrayLength() {
+        return CopyOfColorArray.length;
+    }
+
+
     public char[] getColors() {
         return colors;
     }
 
-
-    public Play(){
+    public Play() {
         randomCode = new RandomCode();
-    }
+        compareInput = new CompareInput();
 
+    }
 
     public void play() {
 
+
         randomCode.randomColorCode();
-        compareInput = new CompareInput();
+        CopyOfColorArray = Arrays.copyOf(randomCode.getRandomColors(), randomCode.getRandomColors().length);
+
         System.out.println(Arrays.toString(randomCode.getRandomColors()));
 
         while (compareInput.getTriesLeft() > 0) {
