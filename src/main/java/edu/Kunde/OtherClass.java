@@ -4,13 +4,18 @@ import edu.ab01.MyClass;
 
 public class OtherClass {
 
-    public static void main(String[] args) {
+    int alter = 12;
+    String name = "Kevin";
 
-        Class myObj = new Class();
-        Class myObj2 = new Class();
-        myObj2.y = 50;
-        System.out.println("Name: " + myObj.fname + " " + myObj.lname);
-        System.out.println("Age: " + myObj.age);
+    public void setName(String name) {
+        this.name = "Yvan";
+    }
+    public void test(){
+        name = "Stew";
+    }
 
+
+    public String getName() {
+        return name;
     }
 }

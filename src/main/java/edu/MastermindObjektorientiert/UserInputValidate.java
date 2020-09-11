@@ -11,8 +11,11 @@ public class UserInputValidate {
 
     private char[] userGuess = new char[4];
 
-    Play colors = new Play();
-    CompareInput compareInput = new CompareInput();
+    Play copyColors;
+
+    public void setCopyColors(Play copyColors) {
+        this.copyColors = copyColors;
+    }
 
     public char[] getUserGuess() {
         return userGuess;
@@ -23,21 +26,18 @@ public class UserInputValidate {
         int validColors = 0;
 
 
-        if (input.length() > colors.getCopyOfColorArrayLength()|| input.length() < colors.getCopyOfColorArrayLength()) {
+        if (input.length() > copyColors.getCopyOfColorArrayLength() || input.length() < copyColors.getCopyOfColorArrayLength()) {
             System.out.println("Eingabe nicht gültig");
             return false;
         } else {
 
-
-
             for (int i = 0; i < input.length(); i++) {
-
                 userGuess[i] = input.charAt(i);
             }
 
 
             for (char k : userGuess) {
-                for (char color : colors.getColors()) {
+                for (char color : copyColors.getColors()) {
                     if (k == color) {
                         validColors++;
                     }

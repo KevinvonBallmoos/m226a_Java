@@ -4,16 +4,30 @@ class Class {
 
     int age = 5;
     int y = 3;
-    String fname = "John";
-    String lname = "Doe";
+    private String fname = "John";
+    private String lname = "Doe";
+
+
 
     public static void main(String[] args) {
 
-        Class myObj = new Class();
-        Class myObj2 = new Class();
-        myObj2.y = 50;
-        System.out.println("Name: " + myObj.fname + " " + myObj.lname);
-        System.out.println("Age: " + myObj.age);
+        OtherClass otherClass = new OtherClass();
+        Class klasse = new Class();
+        for (int i = 0; i < 3; i++){
+
+            System.out.println(otherClass.name);
+        }
+        otherClass.setName(otherClass.name);
+        System.out.println(klasse.fname + otherClass.name);
+
+        if (otherClass.name.equals("Yvan")){
+            System.out.println("Graduation");
+
+        }
+        else if (otherClass.name.equals("Kevin")){
+            System.out.println("Hallo");
+        }
+        System.out.println(otherClass.getName());
 
     }
 

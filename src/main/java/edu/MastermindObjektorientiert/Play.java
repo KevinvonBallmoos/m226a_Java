@@ -5,19 +5,26 @@ import java.util.Arrays;
 public class Play {
 
     private final char[] colors = new char[]{'r', 'g', 'b', 'w', 's', 'y'};
-    private char[] CopyOfColorArray = new char[4];
+    private char[] copyOfColorArray;
 
     RandomCode randomCode;
     CompareInput compareInput;
     UserInput userInput;
     UserInputValidate userInputValidate;
 
+    public Play() {
+        randomCode = new RandomCode();
+        compareInput = new CompareInput();
+        copyOfColorArray = new char[4];
+
+    }
+
     public char[] getCopyOfColorArray() {
-        return CopyOfColorArray;
+        return copyOfColorArray;
     }
 
     public int getCopyOfColorArrayLength() {
-        return CopyOfColorArray.length;
+        return copyOfColorArray.length;
     }
 
 
@@ -25,17 +32,13 @@ public class Play {
         return colors;
     }
 
-    public Play() {
-        randomCode = new RandomCode();
-        compareInput = new CompareInput();
 
-    }
 
     public void play() {
 
 
         randomCode.randomColorCode();
-        CopyOfColorArray = Arrays.copyOf(randomCode.getRandomColors(), randomCode.getRandomColors().length);
+        copyOfColorArray = Arrays.copyOf(randomCode.getRandomColors(), randomCode.getRandomColors().length);
 
         System.out.println(Arrays.toString(randomCode.getRandomColors()));
 

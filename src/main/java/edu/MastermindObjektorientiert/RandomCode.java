@@ -5,10 +5,11 @@ import java.util.Random;
 
 public class RandomCode {
 
-    Play colors;
     Random rand = new Random();
     private final char[] randomColors = new char[4];
     private final int RAND_COLORS = 4;
+
+   Play colors;
 
     public void randomColorCode() {
         colors = new Play();
