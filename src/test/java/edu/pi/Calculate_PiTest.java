@@ -16,11 +16,10 @@ class Calculate_PiTest {
     @Test
     void calculate() {
 
-      assertEquals(3.141, calculate_pi.calculate(0,1,1), 0.01);
+      assertEquals(Math.PI, calculate_pi.calculate(0,1,1), 0.01);
+
 
     }
-
-
 
 
 }
