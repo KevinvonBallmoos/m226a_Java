@@ -21,8 +21,7 @@ public class Konto {
         else if (this.saldo > 500_000){
             this.zinsSatz = 0;
         }
-        double zins = this.saldo * this.zinsSatz * (laufzeit / 365);
-        this.saldo = this.saldo + zins;
+        this.saldo += this.saldo * this.zinsSatz * (laufzeit / 365);
 
     }
 
