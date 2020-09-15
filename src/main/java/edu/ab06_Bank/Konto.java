@@ -4,9 +4,11 @@ public class Konto {
 
     private double saldo;
     private double zinsSatz;
+    private String inhaber;
 
-    public Konto(){
-        zinsSatz = 0.01;
+    public Konto(double zinsSatz, String inhaber){
+        this.zinsSatz = zinsSatz;
+        this.inhaber = inhaber;
     }
 
     public void einzahlen(double betrag){
@@ -27,6 +29,10 @@ public class Konto {
 
     public double getSaldo() {
         return saldo;
+    }
+
+    public String getInhaber() {
+        return this.inhaber;
     }
 }
 
