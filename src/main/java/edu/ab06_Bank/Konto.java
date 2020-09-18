@@ -15,6 +15,16 @@ public class Konto {
         saldo = saldo + betrag;
     }
 
+    public double getZinsSatz() {
+        zinsSatz = 0.01;
+        return zinsSatz;
+    }
+
+    /**
+     * Berechnet den Zins für eine bestimmte Laufzeit(in Tagen)
+     * und addiert diesen zum Saldo
+     * @param laufzeit = Zins in einer bestimmten Laufzeit
+     */
     public void verzinsen(double laufzeit){
 
         if(this.saldo > 50000 && this.saldo < 500000){
