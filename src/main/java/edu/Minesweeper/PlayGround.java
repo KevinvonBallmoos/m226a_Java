@@ -35,12 +35,12 @@ public class PlayGround {
                 if (y == 0) {
                     playGroundArray[x][y] = String.valueOf(x - 1);
                     if (x - 1 < 0) {
-                        playGroundArray[x][y] = "";
+                        playGroundArray[x][y] = "+";
                     }
                 }
                 if (x > 0) {
                     if (y > 0) {
-                        playGroundArray[x][y] = "";
+                        playGroundArray[x][y] = "+";
                     }
                 }
             }
@@ -55,10 +55,8 @@ public class PlayGround {
 
 
         final int numberOfMines = 10;
-        for (int mineX = 1; mineX < 9; mineX++) {
-            for (int mineY = 1; mineY < 2; mineY++) {
-                getPlayGroundArray()[mineX][random.nextInt(playGroundArray.length -1) + 1] = mines;
-            }
+        for (int i = 0; i < 10; i++){
+            getPlayGroundArray()[random.nextInt(playGroundArray.length -1)+1][random.nextInt(playGroundArray.length -1) +1] = mines;
         }
         System.out.println("The PlayGround is generating.");
         System.out.println("...");
