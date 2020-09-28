@@ -12,7 +12,7 @@ public class PlayGround {
     private final int rowX = 9;
     private final int colY = 9;
     private final String[][] playGroundArray = new String[rowX][colY];
-    private final String mines = "*";
+    private final String mines = "+";
     Random random = new Random();
 
     public String getMines() {
@@ -53,19 +53,14 @@ public class PlayGround {
 
     public void setMines() {
 
-
         final int numberOfMines = 10;
         for (int i = 0; i < 10; i++){
-            getPlayGroundArray()[random.nextInt(playGroundArray.length -1)+1][random.nextInt(playGroundArray.length -1) +1] = mines;
+            getPlayGroundArray()[random.nextInt(playGroundArray.length -1) +1][random.nextInt(playGroundArray.length -1) +1] = mines;
         }
         System.out.println("The PlayGround is generating.");
         System.out.println("...");
         System.out.println("The PlayGround is ready and there are " + numberOfMines + " mines hidden.");
         System.out.println("");
 
-       /* int countOfX = Math.floorDiv(lengthOfArray - 1, rand);
-        randomXO();
-        for (int x = 0; x < lengthOfArray; x += countOfX + 1) {
-            XO[x] = 'X';*/
     }
 }
