@@ -41,7 +41,7 @@ public class Aufgabe_1b_Three_Dimensions_Array {
     }
 
     /**
-     * @return  minimum Value of the hole Array
+     * @return  minimum Value of the whole Array
      */
     public static int minimumValue() {
 

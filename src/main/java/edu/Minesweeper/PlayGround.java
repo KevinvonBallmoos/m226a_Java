@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class PlayGround {
     /**
-     * generates PlayGround with 10 minees on random places
+     * generates PlayGround with 10 mines on random places
      */
 
     private final int rowX = 9;
