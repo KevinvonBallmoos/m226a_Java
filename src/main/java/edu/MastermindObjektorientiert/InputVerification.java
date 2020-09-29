@@ -4,16 +4,14 @@ import java.util.Arrays;
 
 public class InputVerification {
 
-
-    UserInputValidate userInputValidate = new UserInputValidate();
     private int triesLeft = 10;
 
     /**
      * //comparing the input with randomcode
      * if color and position is right 1 point
      * if color is right but position not 1 point
-     *
-     * @param output is randomCode
+     * else 0 point
+     * @param output is randomCode, input is userGuess
      * @return win true when userGuess is equals to randomCode
      */
     public boolean verificate(char[] output, String input) {

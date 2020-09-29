@@ -1,7 +1,5 @@
 package edu.MastermindObjektorientiert;
 
-import java.util.Arrays;
-
 /**
  * Mastermind validating rules are:
  * 4 chars
