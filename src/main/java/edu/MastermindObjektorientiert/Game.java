@@ -10,13 +10,6 @@ public class Game {
     UserInputValidate userInputValidate = new UserInputValidate();
     InputVerification inputVerification = new InputVerification();
 
-    public static void main(String[] args) {
-        Game game = new Game();
-
-        game.intro();
-        game.inputOutput();
-    }
-
     public void intro() {
 
         System.out.println("Es wird nun ein Code generiert aus der Menge: " + Arrays.toString(randomCode.getColors()).replace('[', '(').replace(']', ')'));

@@ -24,7 +24,7 @@ public class InputVerification {
         }
 
         if (Arrays.equals(userGuess, output)) {
-            System.out.println("Code war richtig" + "\n" + "Herzliche Gratulation du gewinnst");
+            System.out.println("Code war richtig" + "\n" + "Herzliche Gratulation du gewinnst !!");
             win = true;
         } else if (triesLeft > 0) {
             int equalColorAndPosition = 0;
