@@ -7,17 +7,19 @@ public class RandomCode {
 
     Random rand = new Random();
     private final char[] randomColors = new char[4];
-    private final int RAND_COLORS = 4;
-
-   Play colors;
+    private final char[] colors = new char[]{'r', 'g', 'b', 'w', 's', 'y'};
 
     public void randomColorCode() {
-        colors = new Play();
-        for (int i = 0; i < this.RAND_COLORS; i++) {
+        final int RAND_COLORS = 4;
 
-            this.randomColors[i] = colors.getColors()[this.rand.nextInt(4)];
+        for (int i = 0; i < RAND_COLORS; i++) {
+            this.randomColors[i] = this.colors[this.rand.nextInt(4)];
         }
-        System.out.println("Guten Tag, Es wird nun ein 4 stelliger Code zufällig erstellt aus 6 verschiedenen Farben");
+        System.out.println(Arrays.toString(randomColors));
+    }
+
+    public char[] getColors() {
+        return colors;
     }
 
     public char[] getRandomColors() {
