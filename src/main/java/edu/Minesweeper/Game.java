@@ -21,9 +21,24 @@ public class Game {
                 .replace("[", " ")
                 .replace(",", " ")
                 .replace("[[", " ")
-                .replace("]]", " "));
+                .replace("]]", " \n" +
+                "\n"));
+
+        System.out.println("Type in your Commands: Target or Mark:\n" +
+                "\n" +
+                " Target: T 1 1  \n" +
+                "  +  0  1  2  3  4  5  6  7 \n" +
+                "  0  1  1  0  +  +  +  +  + \n" +
+                "  1  *  1  0  +  +  +  +  + \n" +
+                "\n" +
+                "  Mark: M 1 1\n" +
+                "  +  0  1  2  3  4  5  6  7 \n" +
+                "  0  +  +  +  +  +  +  +  + \n" +
+                "  1  +  M  +  +  +  +  +  + ");
 
         game.gamePlay();
+
+
     }
 
     public void gamePlay() {
