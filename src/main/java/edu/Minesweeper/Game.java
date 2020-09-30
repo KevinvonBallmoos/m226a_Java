@@ -22,7 +22,7 @@ public class Game {
                 .replace(",", " ")
                 .replace("[[", " ")
                 .replace("]]", " \n" +
-                "\n"));
+                        "\n"));
 
         System.out.println("Type in your Commands: Target or Mark:\n" +
                 "\n" +
@@ -38,18 +38,21 @@ public class Game {
 
         game.gamePlay();
 
-
     }
 
     public void gamePlay() {
         //do while loop as long as no bomb is hit, otherwise game ends, needs fixes !
         String userCode;
-        do {
-            userCode = input.userCodeInput();
-            if (validate.validateUserCode(userCode) == true) {
-                verification.userInputEquals(userCode);
+        while(!verification.win(false)) {
+            do {
+                userCode = input.userCodeInput();
+
+            } while (!validate.validate(userCode));
+            verification.userInputEquals(userCode);
+            if (verification.loose()){
+                break;
             }
-        } while (!verification.userInputEqualsT(userCode));
+        }
 
     }
 }
