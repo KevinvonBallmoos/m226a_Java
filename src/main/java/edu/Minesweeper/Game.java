@@ -10,9 +10,10 @@ public class Game {
     UserInput input = new UserInput();
     ValidateUserInput validate = new ValidateUserInput();
     InputVerification verification = new InputVerification();
+    public static PlayGround playGround = new PlayGround();
 
     public static void main(String[] args) {
-        PlayGround playGround = new PlayGround();
+
         Game game = new Game();
 
         playGround.generatePlayGround();
@@ -24,14 +25,15 @@ public class Game {
                 .replace("]]", " \n" +
                         "\n"));
 
-        System.out.println("Type in your Commands: Target or Mark:\n" +
+        System.out.println("Type in your Commands: Target or Mark (no space):\n" +
                 "\n" +
-                " Target: T 1 1  \n" +
+                " Target: T11  \n" +
                 "  +  0  1  2  3  4  5  6  7 \n" +
                 "  0  1  1  0  +  +  +  +  + \n" +
                 "  1  *  1  0  +  +  +  +  + \n" +
                 "\n" +
-                "  Mark: M 1 1\n" +
+                "or\n" +
+                "  Mark: M11\n" +
                 "  +  0  1  2  3  4  5  6  7 \n" +
                 "  0  +  +  +  +  +  +  +  + \n" +
                 "  1  +  M  +  +  +  +  +  + ");
@@ -42,14 +44,15 @@ public class Game {
 
     public void gamePlay() {
         //do while loop as long as no bomb is hit, otherwise game ends, needs fixes !
+        String[][] output = playGround.getPlayGroundArray();
         String userCode;
-        while(!verification.win(false)) {
+        while (!verification.win(false)) {
             do {
                 userCode = input.userCodeInput();
 
             } while (!validate.validate(userCode));
-            verification.userInputEquals(userCode);
-            if (verification.loose()){
+            verification.userInputEquals(userCode, output);
+            if (verification.loose()) {
                 break;
             }
         }

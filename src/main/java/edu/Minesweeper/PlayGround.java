@@ -20,7 +20,7 @@ public class PlayGround {
     }
 
     public String[][] getPlayGroundArray() {
-        return playGroundArray;
+        return Arrays.copyOf(playGroundArray, playGroundArray.length);
     }
 
     public void generatePlayGround() {
@@ -54,8 +54,8 @@ public class PlayGround {
     public void setMines() {
 
         final int numberOfMines = 10;
-        for (int i = 0; i < 10; i++){
-            getPlayGroundArray()[random.nextInt(playGroundArray.length -1) +1][random.nextInt(playGroundArray.length -1) +1] = mines;
+        for (int i = 0; i < 10; i++) {
+            getPlayGroundArray()[random.nextInt(playGroundArray.length - 1) + 1][random.nextInt(playGroundArray.length - 1) + 1] = mines;
         }
         System.out.println("The PlayGround is generating.");
         System.out.println("...");

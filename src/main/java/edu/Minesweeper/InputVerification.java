@@ -1,6 +1,8 @@
 package edu.Minesweeper;
 
 
+import java.util.Arrays;
+
 public class InputVerification {
     /**
      * checks the cells
@@ -11,33 +13,37 @@ public class InputVerification {
      */
 
     //switch case T or M
-    public void userInputEquals(String userCode) {
+    public void userInputEquals(String userCode, String[][] output) {
 
+        /*System.out.println(Arrays.deepToString(output).replace("],", " \n")
+                .replace("[", " ")
+                .replace(",", " ")
+                .replace("[[", " ")
+                .replace("]]", " \n"));*/
         char[] userGuess = new char[userCode.length()];
         for (int i = 0; i < userCode.length(); i++) {
             userGuess[i] = userCode.charAt(i);
         }
-        char col = userGuess[1];
-        int row = Integer.valueOf(userGuess[2]);
+        char[] col = new char[1];
+        col[0] = userGuess[1];
+        char[] row = new char[1];
+        row[0] = userGuess[2];
 
         switch (userGuess[0]) {
-            case 'T' -> userInputEqualsT(col, row);
-            case 'M' -> userInputEqualsM(col, row);
+            case 'T' -> userInputEqualsT(col, row, output);
+            case 'M' -> userInputEqualsM(col, row, output);
         }
 
     }
 
-    public void userInputEqualsT(int col, int row) {
+    public void userInputEqualsT(char[] col, char[]row, String[][] output) {
 
-
-
-        System.out.println("Hallo Test");
         loose();
         win(false);
         win(true);
     }
 
-    public void userInputEqualsM(int col, int row) {
+    public void userInputEqualsM(char[] col, char[]row, String[][] output) {
 
 
     }
