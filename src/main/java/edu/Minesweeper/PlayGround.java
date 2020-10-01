@@ -8,10 +8,10 @@ public class PlayGround {
      * generates PlayGround with 10 mines on random places
      */
 
-    private final int rowX = 9;
-    private final int colY = 9;
+    private final int rowX = 10;
+    private final int colY = 10;
     private final String[][] playGroundArray = new String[rowX][colY];
-    private final String mines = "*";
+    private final String mines = "+";
     Random random = new Random();
 
     public String getMines() {
@@ -23,7 +23,6 @@ public class PlayGround {
     }
 
     public void generatePlayGround() {
-
 
         int x;
         int y;

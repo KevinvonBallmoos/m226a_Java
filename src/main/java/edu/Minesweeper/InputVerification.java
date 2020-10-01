@@ -64,18 +64,16 @@ public class InputVerification {
         //gameplay
         for (int height = row; height < row + 3; height++) {
             for (int width = col; width < col + 3; width++) {
-                if (output[height][width].contains(playGround.getMines())){
+                if (output[height][width].contains(playGround.getMines())) {
                     countOfMines++;
-                    output[row +1][col +1] = Integer.toString(countOfMines);
+                    output[row + 1][col + 1] = Integer.toString(countOfMines);
                 }
-                if (!output[height][width].contains("+")){
+                if (!output[height][width].contains("+")) {
                     output[height][width] = "X";
                 }
 
 
-                   //for every 0 it finds, do while and 2 for loops
-
-
+                //for every 0 it finds, do while and 2 for loops
 
             }
         }
