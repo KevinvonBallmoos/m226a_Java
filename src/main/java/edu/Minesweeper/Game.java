@@ -11,6 +11,7 @@ public class Game {
     ValidateUserInput validate = new ValidateUserInput();
     InputVerification verification = new InputVerification();
     public static PlayGround playGround = new PlayGround();
+    private boolean loose = false;
 
     public static void main(String[] args) {
 
@@ -52,7 +53,7 @@ public class Game {
 
             } while (!validate.validate(userCode));
             verification.userInputEquals(userCode, output);
-            if (verification.loose()) {
+            if (verification.loose(loose)) {
                 break;
             }
         }

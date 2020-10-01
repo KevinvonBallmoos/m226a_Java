@@ -10,7 +10,7 @@ public class UserInput {
     Scanner input = new Scanner(System.in);
 
     public String userCodeInput() {
-        return this.input.nextLine();
+        return this.input.nextLine().toUpperCase();
     }
 
 }

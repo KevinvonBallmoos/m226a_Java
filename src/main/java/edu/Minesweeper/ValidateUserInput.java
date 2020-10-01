@@ -29,12 +29,13 @@ public class ValidateUserInput {
                 return false;
             }
             try {
-                Integer.valueOf(userGuess[1]);
-                Integer.valueOf(userGuess[2]);
+                Integer.parseInt(String.valueOf(userGuess[1]));
+                Integer.parseInt(String.valueOf(userGuess[2]));
             } catch (NumberFormatException e) {
                 return false;
             }
-            if (!(userGuess[1] > 7) || !(userGuess[2] > 7)){
+            if ((Integer.parseInt(String.valueOf(userGuess[1])) > 7) || Integer.parseInt(String.valueOf(userGuess[2])) > 7)
+            {
                 System.out.println("Input not vaild, one Char and 2 numbers allowed (numbers from 0 to 7!!");
                 System.out.println("Try again!");
                 return false;
