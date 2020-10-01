@@ -3,10 +3,9 @@ package edu.Minesweeper;
 import java.util.Arrays;
 import java.util.Random;
 
-
 public class PlayGround {
     /**
-     * generates PlayGround with 10 minees on random places
+     * generates PlayGround with 10 mines on random places
      */
 
     private final int rowX = 9;
@@ -20,10 +19,11 @@ public class PlayGround {
     }
 
     public String[][] getPlayGroundArray() {
-        return playGroundArray;
+        return Arrays.copyOf(playGroundArray, playGroundArray.length);
     }
 
     public void generatePlayGround() {
+
 
         int x;
         int y;
@@ -45,6 +45,7 @@ public class PlayGround {
                 }
             }
             if (x == 8) {
+                playGroundArray[0][0] = " ";
                 setMines();
             }
         }
@@ -53,19 +54,14 @@ public class PlayGround {
 
     public void setMines() {
 
-
         final int numberOfMines = 10;
-        for (int i = 0; i < 10; i++){
-            getPlayGroundArray()[random.nextInt(playGroundArray.length -1)+1][random.nextInt(playGroundArray.length -1) +1] = mines;
+        for (int i = 0; i < numberOfMines; i++) {
+            getPlayGroundArray()[random.nextInt(playGroundArray.length - 1) + 1][random.nextInt(playGroundArray.length - 1) + 1] = mines;
         }
         System.out.println("The PlayGround is generating.");
         System.out.println("...");
         System.out.println("The PlayGround is ready and there are " + numberOfMines + " mines hidden.");
         System.out.println("");
 
-       /* int countOfX = Math.floorDiv(lengthOfArray - 1, rand);
-        randomXO();
-        for (int x = 0; x < lengthOfArray; x += countOfX + 1) {
-            XO[x] = 'X';*/
     }
 }
