@@ -1,13 +1,12 @@
 package edu.Minesweeper;
 
-
-import edu.MastermindObjektorientiert.RandomCode;
-
 import java.util.Arrays;
 
 public class InputVerification {
 
     PlayGround playGround = new PlayGround();
+    private int count = 0;
+
     /**
      * checks the cells
      * cover = +
@@ -37,8 +36,9 @@ public class InputVerification {
 
     public void userInputEqualsT(int col, int row, String[][] output) {
 
-        if (output[row + 1][col + 1].equals(playGround.getMines())){
-            output[row + 1][col + 1] = playGround.getMines();
+        //loose-condition
+        if (output[row + 1][col + 1].equals(playGround.getMines())) {
+            output[row + 1][col + 1] = "X";
             System.out.println(Arrays.deepToString(output)
                     .replace("],", " \n")
                     .replace("[", " ")
@@ -48,17 +48,38 @@ public class InputVerification {
             loose(true);
         }
 
+        //win-condition
+        for (String[] strings : output) {
+            for (int j = 0; j < output.length; j++) {
+                if (strings[j].contains("+")) {
+                    count++;
+                    if (count == 0) {
+                        win(true);
+                    }
+                }
+            }
+        }
 
-        win(false);
-        win(true);
+        //gameplay
+        for (int height = row; height < row + 2; height++) {
+            for (int width = col; width < col + 2; width++) {
+                output[height][width] = "X";
+            }
+        }
+        System.out.println(Arrays.deepToString(output)
+                .replace("],", " \n")
+                .replace("[", " ")
+                .replace(",", " ")
+                .replace("[[", " ")
+                .replace("]]", " \n"));
+
     }
 
     public void userInputEqualsM(int col, int row, String[][] output) {
 
         if (output[row + 1][col + 1].equals("+") || output[row + 1][col + 1].equals("*")) {
             output[row + 1][col + 1] = "M";
-        }
-        else if ((output[row + 1][col + 1].equals("M"))){
+        } else if ((output[row + 1][col + 1].equals("M"))) {
             output[row + 1][col + 1] = "+";
         }
 
@@ -86,13 +107,11 @@ public class InputVerification {
 
     }
 
-    public boolean loose(boolean loose) {
-        if (!loose) {
-            return false;
-        } else {
+    public void loose(boolean loose) {
+        if (loose) {
             System.out.println("You hit a mine, you Loose!!\n" +
                     "Game Over!!");
-            return true;
         }
     }
 }
+

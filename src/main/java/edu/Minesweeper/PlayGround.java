@@ -3,7 +3,6 @@ package edu.Minesweeper;
 import java.util.Arrays;
 import java.util.Random;
 
-
 public class PlayGround {
     /**
      * generates PlayGround with 10 mines on random places
@@ -25,6 +24,7 @@ public class PlayGround {
 
     public void generatePlayGround() {
 
+
         int x;
         int y;
         for (x = 0; x < rowX; x++) {
@@ -45,6 +45,7 @@ public class PlayGround {
                 }
             }
             if (x == 8) {
+                playGroundArray[0][0] = " ";
                 setMines();
             }
         }
@@ -54,7 +55,7 @@ public class PlayGround {
     public void setMines() {
 
         final int numberOfMines = 10;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < numberOfMines; i++) {
             getPlayGroundArray()[random.nextInt(playGroundArray.length - 1) + 1][random.nextInt(playGroundArray.length - 1) + 1] = mines;
         }
         System.out.println("The PlayGround is generating.");
