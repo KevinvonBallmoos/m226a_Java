@@ -55,14 +55,25 @@ public class InputVerification {
             for (int width = col; width < col + 3; width++) {
                 if (width < 1 || height < 1) {
                     output[height][width] = output[height][width];
-                }
-                else if (width > 9 || height > 9){
+                } else if (width > 9 || height > 9) {
                     output[height][width] = output[height][width];
 
-                }
-                else if (output[height][width].contains(playGround.getMines())) {
+                } else if (output[height][width].contains(playGround.getMines())) {
                     countOfMines++;
-
+                    while (countOfMines == 0)
+                    {
+                        for (height = row; height < row + 3; height++) {
+                            for (width = col; width < col + 3; width++) {
+                                if (width < 1 || height < 1) {
+                                    output[height][width] = output[height][width];
+                                } else if (width > 9 || height > 9) {
+                                    output[height][width] = output[height][width];
+                                } else if (output[height][width].contains(playGround.getMines())) {
+                                    countOfMines++;
+                                }
+                            }
+                        }
+                    }
                     output[row + 1][col + 1] = Integer.toString(countOfMines);
                 }
 
