@@ -40,6 +40,7 @@ public class InputVerification {
         //loose-condition
         if (output[row + 1][col + 1].equals(playGround.getMines())) {
             output[row + 1][col + 1] = "X";
+            System.out.println("");
             System.out.println(Arrays.deepToString(output)
                     .replace("],", " \n")
                     .replace("[", " ")
@@ -49,32 +50,23 @@ public class InputVerification {
             loose(true);
         }
 
-        //win-condition
-        for (String[] strings : output) {
-            for (int j = 0; j < output.length; j++) {
-                if (strings[j].contains("+")) {
-                    count++;
-                    if (count == 0) {
-                        win(true);
-                    }
-                }
-            }
-        }
-
         //gameplay
         for (int height = row; height < row + 3; height++) {
             for (int width = col; width < col + 3; width++) {
-                if (output[height][width].contains(playGround.getMines())) {
+                if (width < 1 || height < 1) {
+                    output[height][width] = output[height][width];
+                }
+                else if (width > 9 || height > 9){
+                    output[height][width] = output[height][width];
+
+                }
+                else if (output[height][width].contains(playGround.getMines())) {
                     countOfMines++;
+
                     output[row + 1][col + 1] = Integer.toString(countOfMines);
                 }
-                if (!output[height][width].contains("+")) {
-                    output[height][width] = "X";
-                }
-
 
                 //for every 0 it finds, do while and 2 for loops
-
             }
         }
         System.out.println(Arrays.deepToString(output)
@@ -104,6 +96,17 @@ public class InputVerification {
 
         System.out.println("Type in your Commands: Target or Mark (no space):");
 
+        //win-condition
+        for (String[] strings : output) {
+            for (int j = 0; j < output.length; j++) {
+                if (strings[j].contains(playGround.getMines())) {
+                    count++;
+                    if (count == 0) {
+                        win(true);
+                    }
+                }
+            }
+        }
     }
 
     public boolean win(boolean win) {
@@ -118,11 +121,12 @@ public class InputVerification {
 
     }
 
-    public void loose(boolean loose) {
+    public boolean loose(boolean loose) {
         if (loose) {
             System.out.println("You hit a mine, you Loose!!\n" +
                     "Game Over!!");
         }
+        return true;
     }
 }
 

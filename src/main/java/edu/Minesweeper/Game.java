@@ -12,6 +12,7 @@ public class Game {
     InputVerification verification = new InputVerification();
     public static PlayGround playGround = new PlayGround();
     private boolean win = false;
+    private boolean loose = false;
 
     public static void main(String[] args) {
 
@@ -26,8 +27,8 @@ public class Game {
                 .replace("]]", " \n" +
                         "\n"));
 
-        System.out.println("Type in your Commands: Target or Mark (no space):\n" +
-                "\n" +
+        System.out.println("Type in your Commands: Target or Mark (no space):\n" );
+               /* "\n" +
                 " Target: T11  \n" +
                 "  +  0  1  2  3  4  5  6  7 \n" +
                 "  0  1  1  0  +  +  +  +  + \n" +
@@ -37,7 +38,7 @@ public class Game {
                 "  Mark: M11\n" +
                 "  +  0  1  2  3  4  5  6  7 \n" +
                 "  0  +  +  +  +  +  +  +  + \n" +
-                "  1  +  M  +  +  +  +  +  + ");
+                "  1  +  M  +  +  +  +  +  + ");*/
 
         game.gamePlay();
 
@@ -53,7 +54,7 @@ public class Game {
 
             } while (!validate.validate(userCode));
             verification.userInputEquals(userCode, output);
-            if (verification.win(win)) {
+            if (!verification.win(win) || !verification.loose(loose)) {
                 break;
             }
         }
