@@ -54,9 +54,16 @@ public class Game {
 
             } while (!validate.validate(userCode));
             verification.userInputEquals(userCode, output);
-            if (winOrLoose.isStillInGame()) {
+            if (!winOrLoose.isWin()){
+                if (winOrLoose.isStillInGame()) {
                 System.out.println("You hit a mine, you Loose!!\n" +
                         "Game Over!!");
+                break;
+                }
+                System.out.println("Next move ?");
+            }
+            else if (winOrLoose.isWin()){
+                System.out.println("bla");
                 break;
             }
 

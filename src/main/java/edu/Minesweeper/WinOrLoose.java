@@ -5,6 +5,14 @@ public class WinOrLoose {
     private boolean stillInGame = true;
     private boolean win = false;
 
+    public void setWin(boolean win) {
+        this.win = win;
+    }
+
+    public boolean isWin() {
+        return win;
+    }
+
     public void setStillInGame(boolean stillInGame) {
         this.stillInGame = stillInGame;
     }
@@ -14,7 +22,7 @@ public class WinOrLoose {
     }
 
     public void win() {
-        this.win = true;
+        setWin(true);
     }
 
     public void loose() {
