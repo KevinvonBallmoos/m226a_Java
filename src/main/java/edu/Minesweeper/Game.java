@@ -10,9 +10,9 @@ public class Game {
     UserInput input = new UserInput();
     ValidateUserInput validate = new ValidateUserInput();
     InputVerification verification = new InputVerification();
+    WinOrLoose winOrLoose = new WinOrLoose();
+
     public static PlayGround playGround = new PlayGround();
-    private boolean win = false;
-    private boolean loose = false;
 
     public static void main(String[] args) {
 
@@ -27,7 +27,7 @@ public class Game {
                 .replace("]]", " \n" +
                         "\n"));
 
-        System.out.println("Type in your Commands: Target or Mark (no space):\n" );
+        System.out.println("Type in your Commands: Target or Mark (no space):\n");
                /* "\n" +
                 " Target: T11  \n" +
                 "  +  0  1  2  3  4  5  6  7 \n" +
@@ -48,15 +48,18 @@ public class Game {
         //do while loop as long as no bomb is hit, otherwise game ends, needs fixes !
         String[][] output = playGround.getPlayGroundArray();
         String userCode;
-        while (!verification.win(false)) {
+        while (winOrLoose.isStillInGame()) {
             do {
                 userCode = input.userCodeInput();
 
             } while (!validate.validate(userCode));
             verification.userInputEquals(userCode, output);
-            if (!verification.win(win) || !verification.loose(loose)) {
+            if (winOrLoose.isStillInGame()) {
+                System.out.println("You hit a mine, you Loose!!\n" +
+                        "Game Over!!");
                 break;
             }
+
         }
 
     }
