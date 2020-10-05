@@ -6,8 +6,8 @@ public class InputVerification {
 
     PlayGround playGround = new PlayGround();
     WinOrLoose winOrLoose = new WinOrLoose();
-    private int count = 0;
     private int countOfMines = 0;
+    final int numberOfMines = 10;
 
     /**
      * checks the cells
@@ -18,7 +18,7 @@ public class InputVerification {
      */
 
     //switch case T or M
-    public void userInputEquals(String userCode, String[][] output) {
+    public boolean userInputEquals(String userCode, String[][] output) {
 
         char[] userGuess = new char[3];
         for (int i = 0; i < userGuess.length; i++) {
@@ -30,15 +30,23 @@ public class InputVerification {
 
 
         switch (userGuess[0]) {
-            case 'T' -> userInputEqualsT(col, row, output);
-            case 'M' -> userInputEqualsM(col, row, output);
+            case 'T' -> {
+                if (userInputEqualsT(col, row, output)) {
+                    winOrLoose.setStillInGame(false);
+                    return true;
+                }
+            }
+            case 'M' -> {
+                if (userInputEqualsM(col, row, output)) {
+                    winOrLoose.setStillInGame(false);
+                    return true;
+                }
+            }
         }
-
-
-
+        return false;
     }
 
-    public void userInputEqualsT(int col, int row, String[][] output) {
+    public boolean userInputEqualsT(int col, int row, String[][] output) {
 
         //loose-condition
         if (output[row + 1][col + 1].equals(playGround.getMines())) {
@@ -50,7 +58,10 @@ public class InputVerification {
                     .replace(",", " ")
                     .replace("[[", " ")
                     .replace("]]", " \n"));
-            winOrLoose.loose();
+
+            System.out.println("You hit a mine, you Loose!!\n" +
+                    "Game Over!!");
+            return true;
 
         } else {
             //gameplay
@@ -61,7 +72,7 @@ public class InputVerification {
                     } else if (width > 9 || height > 9) {
                         output[height][width] = output[height][width];
 
-                    } else if (output[height][width].contains(playGround.getMines())) {
+                    } else if (output[height][width].contains(playGround.getMines()) || output[height][width].contains("M")) {
                         countOfMines++;
                         output[row + 1][col + 1] = Integer.toString(countOfMines);
                         while (countOfMines == 0) {
@@ -93,10 +104,12 @@ public class InputVerification {
 
         }
 
+        return false;
     }
 
-    public void userInputEqualsM(int col, int row, String[][] output) {
+    public boolean userInputEqualsM(int col, int row, String[][] output) {
 
+        int count = 0;
         if (output[row + 1][col + 1].equals("+") || output[row + 1][col + 1].equals("*")) {
             output[row + 1][col + 1] = "M";
         } else if ((output[row + 1][col + 1].equals("M"))) {
@@ -115,15 +128,18 @@ public class InputVerification {
 
         //win-condition
         for (String[] strings : output) {
-            for (int j = 0; j < output.length; j++) {
-                if (strings[j].contains(playGround.getMines())) {
+            for (int j = 1; j < output.length - 1; j++) {
+                if (strings[j].equals("M")) {
                     count++;
-                    if (count == 0) {
-                       winOrLoose.win();
+                    if (count == numberOfMines) {
+                        System.out.println("Gratulation, you found all mines\n" +
+                                "Game complete");
+                        return true;
                     }
                 }
             }
         }
+        return false;
     }
 
 }
