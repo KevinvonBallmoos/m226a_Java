@@ -2,8 +2,6 @@ package edu.Minesweeper;
 
 public class ValidateUserInput {
 
-    private char[] userGuess = new char[3];
-
     /**
      * validates the Input
      * is there 1 char
@@ -19,7 +17,7 @@ public class ValidateUserInput {
             System.out.println("Input not valid");
             return false;
         } else {
-            userGuess = new char[userCode.length()];
+            char[] userGuess = new char[userCode.length()];
             for (int i = 0; i < userGuess.length; i++) {
                 userGuess[i] = userCode.charAt(i);
             }

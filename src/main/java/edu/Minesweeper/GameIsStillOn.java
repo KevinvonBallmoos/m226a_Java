@@ -1,9 +1,8 @@
 package edu.Minesweeper;
 
-public class WinOrLoose {
+public class GameIsStillOn {
 
     private boolean stillInGame = true;
-    private boolean win = false;
 
     public void setStillInGame(boolean stillInGame) {
         this.stillInGame = stillInGame;

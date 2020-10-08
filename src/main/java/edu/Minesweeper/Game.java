@@ -10,7 +10,7 @@ public class Game {
     UserInput input = new UserInput();
     ValidateUserInput validate = new ValidateUserInput();
     InputVerification verification = new InputVerification();
-    WinOrLoose winOrLoose = new WinOrLoose();
+    GameIsStillOn gameIsStillOn = new GameIsStillOn();
 
     public static PlayGround playGround = new PlayGround();
 
@@ -44,20 +44,20 @@ public class Game {
 
     }
 
+    /**
+     *
+     */
     public void gamePlay() {
-        //do while loop as long as no bomb is hit, otherwise game ends, needs fixes !
         String[][] output = playGround.getPlayGroundArray();
         String userCode;
-        while (winOrLoose.isStillInGame()) {
+        while (gameIsStillOn.isStillInGame()) {
             do {
                 userCode = input.userCodeInput();
 
             } while (!validate.validate(userCode));
-           if(verification.userInputEquals(userCode, output)){
-               break;
-           }
-
+            if (verification.userInputEquals(userCode, output)) {
+                break;
+            }
         }
-
     }
 }
