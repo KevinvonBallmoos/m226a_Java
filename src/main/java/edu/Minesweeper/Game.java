@@ -2,11 +2,10 @@ package edu.Minesweeper;
 
 import java.util.Arrays;
 
+/**
+ * starts game
+ */
 public class Game {
-    /**
-     * starts game
-     */
-
     UserInput input = new UserInput();
     ValidateUserInput validate = new ValidateUserInput();
     InputVerification verification = new InputVerification();
@@ -24,8 +23,7 @@ public class Game {
                 .replace("[", " ")
                 .replace(",", " ")
                 .replace("[[", " ")
-                .replace("]]", " \n" +
-                        "\n"));
+                .replace("]]", " \n"));
 
         System.out.println("Type in your Commands: Target or Mark (no space):\n");
                /* "\n" +

@@ -55,8 +55,8 @@ public class InputVerification {
      */
     public boolean userInputEqualsT(int col, int row, String[][] output) {
 
-        if (output[row + 1][col + 1].equals(playGround.getMines())) {
-            output[row + 1][col + 1] = "X";
+        if (output[col + 1][row + 1].equals(playGround.getMines())) {
+            output[col + 1][row + 1] = "X";
             System.out.println("..");
             System.out.println(Arrays.deepToString(output)
                     .replace("],", " \n")
@@ -85,12 +85,13 @@ public class InputVerification {
      */
     public boolean userInputEqualsM(int col, int row, String[][] output) {
 
+        playGround.setMines("*");
         int count = 0;
-        if (output[row + 1][col + 1].equals(playGround.getMines())) {
+        if (output[col + 1][row + 1].equals(playGround.getMines())) {
             playGround.setMines("M");
-            output[row + 1][col + 1] = playGround.getMines();
-        } else if ((output[row + 1][col + 1].equals("M"))) {
-            output[row + 1][col + 1] = "+";
+            output[col + 1][row + 1] = playGround.getMines();
+        } else if ((output[col + 1][row + 1].equals("M"))) {
+            output[col + 1][row + 1] = "+";
         }
 
         System.out.println(Arrays.deepToString(output)
@@ -98,14 +99,12 @@ public class InputVerification {
                 .replace("[", " ")
                 .replace(",", " ")
                 .replace("[[", " ")
-                .replace("]]", " \n" +
-                        "\n"));
+                .replace("]]", " \n"));
 
-        System.out.println("Type in your Commands: Target or Mark (no space):");
 
         for (String[] strings : output) {
             for (int j = 1; j < output.length - 1; j++) {
-                if (strings[j].equals(playGround.getMines())) {
+                if (strings[j].equals("M")) {
                     count++;
 
                     if (count == numberOfMines) {
@@ -116,7 +115,8 @@ public class InputVerification {
                 }
             }
         }
-        System.out.println(count);
+        System.out.println(" You found " + count + " mine.");
+        System.out.println("Type in your Commands: Target or Mark (no space):");
         return false;
     }
 }
