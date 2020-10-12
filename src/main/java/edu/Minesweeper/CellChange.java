@@ -22,6 +22,15 @@ public class CellChange {
              // 1 left
              CellIsChange(col - 1, row, output);
      */
+
+    /**
+     * loops around the targeted position and counts the mines
+     * if there are no mines, the function "isCellZero" gets loaded
+     *
+     * @param col    takes the column from userInputEquals
+     * @param row    takes the row from userInputEquals
+     * @param output takes the PlayGround as String[][]output
+     */
     public void CellIsChange(int col, int row, String[][] output) {
         if (col < 1) {
             col = 1;
@@ -33,7 +42,7 @@ public class CellChange {
         int countOfMines = 0;
         for (int height = col; height < col + 3; height++) {
             for (int width = row; width < row + 3; width++) {
-                if (width > 9 || height > 9) {
+                if (width > 8 || height > 8) {
                     output[height][width] = output[height][width];
                 }
                 if (countOfMines == 0) {
@@ -47,13 +56,20 @@ public class CellChange {
         }
         if (countOfMines == 0) {
 
-            ifCellIsZero(col - 1, row - 1, output);
+            ifCellIsZero(col, row, output);
 
         } else {
             printMessage(output);
         }
     }
 
+    /**
+     * loops around the targeted Cell one more time, just to loop around each element to count the mines around them
+     *
+     * @param col    takes the column from userInputEquals
+     * @param row    takes the row from userInputEquals
+     * @param output takes the PlayGround as String[][]output
+     */
     public void ifCellIsZero(int col, int row, String[][] output) {
         if (col < 1) {
             col = 1;
@@ -63,7 +79,7 @@ public class CellChange {
         }
         for (int height = col; height < col + 3; height++) {
             for (int width = row; width < row + 3; width++) {
-                if (width > 9 || height > 9) {
+                if (width > 8 || height > 8) {
                     output[height][width] = output[height][width];
                 }
                 loopIfCellIsZero(col - 1, row - 1, output);
@@ -74,6 +90,13 @@ public class CellChange {
         printMessage(output);
     }
 
+    /**
+     * loops around the element in which the method "ifCellIsZero" is in and count the mines
+     *
+     * @param col    takes the column from userInputEquals
+     * @param row    takes the row from userInputEquals
+     * @param output takes the PlayGround as String[][]output
+     */
     public void loopIfCellIsZero(int col, int row, String[][] output) {
         if (col < 1) {
             col = 1;
@@ -85,7 +108,7 @@ public class CellChange {
         int countOfMines = 0;
         for (int height = col; height < col + 3; height++) {
             for (int width = row; width < row + 3; width++) {
-                if (width > 9 || height > 9) {
+                if (width > 8 || height > 8) {
                     output[height][width] = output[height][width];
                 }
                 if (countOfMines == 0) {
@@ -97,9 +120,14 @@ public class CellChange {
                 }
             }
         }
-        printMessage(output);
+
     }
 
+    /**
+     * prints the playground for the next move
+     *
+     * @param output takes the PlayGround as String[][]output
+     */
     public void printMessage(String[][] output) {
         System.out.println(Arrays.deepToString(output)
                 .replace("],", " \n")
