@@ -119,6 +119,7 @@ public class CellChange {
                     output[col + 1][row + 1] = Integer.toString(countOfMines);
                 }
             }
+
         }
 
     }

@@ -20,7 +20,7 @@ public class Aufgabe_1_XO {
             randomNumber();
             fillArrayWithO();
             fillArrayWithX();
-            System.out.println("Column " + col + " " + " Randomnumber: " + number  + " " + String.valueOf(XO));
+            System.out.println("Column " + col + " " + " RandomNumber: " + number  + " " + String.valueOf(XO));
         }
     }
 
