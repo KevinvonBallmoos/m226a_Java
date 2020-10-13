@@ -3,21 +3,22 @@ package edu.Minesweeper;
 import java.util.Arrays;
 import java.util.Random;
 
+/**
+ * creates playground and fills the mines into it
+ */
 public class PlayGround {
 
     private final int rowX = 10;
     private final int colY = 10;
     private final String[][] playGroundArray = new String[rowX][colY];
-    private String[] mines = new String[1];
+    private String mines = "*";
 
     Random random = new Random();
 
-    public void setMines(String[] mines) {
-        this.mines = mines;
-    }
 
-    public String[] getMines() {
-        return Arrays.copyOf(mines, mines.length);
+
+    public String getMines() {
+        return mines;
     }
 
     public String[][] getPlayGroundArray() {
@@ -39,7 +40,7 @@ public class PlayGround {
                 if (y == 0) {
                     playGroundArray[x][y] = String.valueOf(x - 1);
                     if (x > 8) {
-                        playGroundArray[x][y] = " ";
+                        playGroundArray[x][y] = "";
                     } else if (x - 1 < 0) {
                         playGroundArray[x][y] = "+"; //+
                     }
@@ -52,15 +53,15 @@ public class PlayGround {
                 }
                 if (x > 8) {
                     if (y > 0) {
-                        playGroundArray[x][y] = " ";
+                        playGroundArray[x][y] = "";
                     }
                 }
                 if (y > 8) {
-                    playGroundArray[x][y] = " ";
+                    playGroundArray[x][y] = "";
                 }
             }
             if (x == 8) {
-                playGroundArray[0][0] = " ";
+                playGroundArray[0][0] = "";
                 setMinesInPlayGround();
             }
 
@@ -73,10 +74,10 @@ public class PlayGround {
      */
     public void setMinesInPlayGround() {
 
-        mines[0] = "*";
+//        mines = "+";
         final int numberOfMines = 10;
         for (int i = 0; i < numberOfMines; i++) {
-            getPlayGroundArray()[random.nextInt(playGroundArray.length - 2) + 1][random.nextInt(playGroundArray.length - 2) + 1] = Arrays.deepToString(mines);
+            getPlayGroundArray()[random.nextInt(playGroundArray.length - 2) + 1][random.nextInt(playGroundArray.length - 2) + 1] = getMines();
         }
         System.out.println("The PlayGround is generating.");
         System.out.println("...");

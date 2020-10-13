@@ -2,6 +2,9 @@ package edu.Minesweeper;
 
 import java.util.Arrays;
 
+/**
+ * verficicates the input, if its an input with M or T
+ */
 public class InputVerification {
 
     PlayGround playGround = new PlayGround();

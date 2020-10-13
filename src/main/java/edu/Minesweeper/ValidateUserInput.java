@@ -1,5 +1,8 @@
 package edu.Minesweeper;
 
+/**
+ * validates the user input
+ */
 public class ValidateUserInput {
 
     /**

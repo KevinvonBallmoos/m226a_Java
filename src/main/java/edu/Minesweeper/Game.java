@@ -34,7 +34,7 @@ public class Game {
     }
 
     /**
-     *
+     * gameplay while the game is still on it continues to take input from the user, till he wins or looses
      */
     public void gamePlay() {
         String[][] output = playGround.getPlayGroundArray();
