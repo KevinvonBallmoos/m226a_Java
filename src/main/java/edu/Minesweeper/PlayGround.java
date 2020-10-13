@@ -8,16 +8,16 @@ public class PlayGround {
     private final int rowX = 10;
     private final int colY = 10;
     private final String[][] playGroundArray = new String[rowX][colY];
-    private String mines = "*";
+    private String[] mines = new String[1];
 
     Random random = new Random();
 
-    public void setMines(String mines) {
+    public void setMines(String[] mines) {
         this.mines = mines;
     }
 
-    public String getMines() {
-        return mines;
+    public String[] getMines() {
+        return Arrays.copyOf(mines, mines.length);
     }
 
     public String[][] getPlayGroundArray() {
@@ -61,7 +61,7 @@ public class PlayGround {
             }
             if (x == 8) {
                 playGroundArray[0][0] = " ";
-                setMines();
+                setMinesInPlayGround();
             }
 
         }
@@ -71,11 +71,12 @@ public class PlayGround {
     /**
      * Fills 10 mines random into the PlayGround
      */
-    public void setMines() {
+    public void setMinesInPlayGround() {
 
+        mines[0] = "*";
         final int numberOfMines = 10;
         for (int i = 0; i < numberOfMines; i++) {
-            getPlayGroundArray()[random.nextInt(playGroundArray.length - 2) + 1][random.nextInt(playGroundArray.length - 2) + 1] = mines;
+            getPlayGroundArray()[random.nextInt(playGroundArray.length - 2) + 1][random.nextInt(playGroundArray.length - 2) + 1] = Arrays.deepToString(mines);
         }
         System.out.println("The PlayGround is generating.");
         System.out.println("...");

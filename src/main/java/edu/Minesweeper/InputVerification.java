@@ -85,14 +85,14 @@ public class InputVerification {
      */
     public boolean userInputEqualsM(int col, int row, String[][] output) {
 
-        playGround.setMines("*");
+
         int count = 0;
-        if (output[col + 1][row + 1].equals(playGround.getMines())) {
-            playGround.setMines("M");
+/*        if (output[col + 1][row + 1].equals(playGround.getMines())) {
+            playGround.setMines("!");
             output[col + 1][row + 1] = playGround.getMines();
-        } else if ((output[col + 1][row + 1].equals("M"))) {
+        } else if ((output[col + 1][row + 1].equals("!"))) {
             output[col + 1][row + 1] = "+";
-        }
+        }*/
 
         System.out.println(Arrays.deepToString(output)
                 .replace("],", " \n")
@@ -104,7 +104,7 @@ public class InputVerification {
 
         for (String[] strings : output) {
             for (int j = 1; j < output.length - 1; j++) {
-                if (strings[j].equals("M")) {
+                if (strings[j].equals("!")) {
                     count++;
 
                     if (count == numberOfMines) {

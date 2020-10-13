@@ -19,24 +19,15 @@ public class Game {
 
         playGround.generatePlayGround();
         System.out.println(Arrays.deepToString(playGround.getPlayGroundArray())
-                .replace("],", " \n")
-                .replace("[", " ")
-                .replace(",", " ")
                 .replace("[[", " ")
-                .replace("]]", " \n"));
+                .replace("]]", " \n")
+                .replace("], [", " \n")
+                .replace("]", " ")
+                .replace(",", " ")
+                .replace("[", " "));
+
 
         System.out.println("Type in your Commands: Target or Mark (no space):\n");
-               /* "\n" +
-                " Target: T11  \n" +
-                "  +  0  1  2  3  4  5  6  7 \n" +
-                "  0  1  1  0  +  +  +  +  + \n" +
-                "  1  *  1  0  +  +  +  +  + \n" +
-                "\n" +
-                "or\n" +
-                "  Mark: M11\n" +
-                "  +  0  1  2  3  4  5  6  7 \n" +
-                "  0  +  +  +  +  +  +  +  + \n" +
-                "  1  +  M  +  +  +  +  +  + ");*/
 
         game.gamePlay();
 

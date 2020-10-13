@@ -32,10 +32,10 @@ public class CellChange {
      * @param output takes the PlayGround as String[][]output
      */
     public void CellIsChange(int col, int row, String[][] output) {
-        if (col < 1) {
+        if (col < 0) {
             col = 1;
         }
-        if (row < 1) {
+        if (row < 0) {
             row = 1;
         }
 
@@ -48,7 +48,7 @@ public class CellChange {
                 if (countOfMines == 0) {
                     output[col + 1][row + 1] = "0";
                 }
-                if (output[height][width].equals(playGround.getMines()) || output[height][width].equals("M")) {
+                if (output[height][width].equals(playGround.getMines()) || output[height][width].equals("!")) {
                     countOfMines++;
                     output[col + 1][row + 1] = Integer.toString(countOfMines);
                 }
@@ -114,7 +114,7 @@ public class CellChange {
                 if (countOfMines == 0) {
                     output[height + 1][width + 1] = "0";
                 }
-                if (output[height][width].equals(playGround.getMines()) || output[height][width].equals("M")) {
+                if (output[height][width].equals(playGround.getMines()) || output[height][width].equals("!")) {
                     countOfMines++;
                     output[col + 1][row + 1] = Integer.toString(countOfMines);
                 }
