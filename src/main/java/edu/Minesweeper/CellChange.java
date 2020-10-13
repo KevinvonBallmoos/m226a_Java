@@ -2,6 +2,9 @@ package edu.Minesweeper;
 
 import java.util.Arrays;
 
+/**
+ * calculates the neighbours from the cell that is targedted
+ */
 public class CellChange {
 
     PlayGround playGround = new PlayGround();
@@ -118,7 +121,13 @@ public class CellChange {
                     countOfMines++;
                     output[col + 1][row + 1] = Integer.toString(countOfMines);
                 }
+
             }
+            if (countOfMines == 0){
+                ifCellIsZero(col, row, output);
+            }
+
+
 
         }
 
