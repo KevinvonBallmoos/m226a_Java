@@ -6,7 +6,7 @@ import java.util.Random;
 public class Aufgabe_1b_Three_Dimensions_Array {
 
     private final int column = 6, group = 3, element = 4;
-    private final int[][][] randmNumbers = new int[column][group][element];
+    private final int[][][] randomNumbers = new int[column][group][element];
     Random random = new Random();
     private int minValue;
 
@@ -24,11 +24,11 @@ public class Aufgabe_1b_Three_Dimensions_Array {
         for (int col = 0; col < column; col++) {
             for (int grp = 0; grp < group; grp++) {
                 for (int elm = 0; elm < element; elm++) {
-                    randmNumbers[col][grp][elm] = random.nextInt(11) + 20;
+                    randomNumbers[col][grp][elm] = random.nextInt(11) + 20;
                 }
             }
         }
-        System.out.println(Arrays.deepToString(randmNumbers)
+        System.out.println(Arrays.deepToString(randomNumbers)
                 .replace("[[[", " ( ").replace("]]]", " )")
                 .replace("]],", " )\n").replace("[[", "( ")
                 .replace("[", "( ").replace("]", " )")
@@ -39,12 +39,12 @@ public class Aufgabe_1b_Three_Dimensions_Array {
      * search the Array for the min Value
      */
     public void minimumOfNumbers() {
-        minValue = randmNumbers[0][0][0];
+        minValue = randomNumbers[0][0][0];
         for (int col = 0; col < column; col++) {
             for (int grp = 0; grp < group; grp++) {
                 for (int elm = 0; elm < element; elm++) {
-                    if (minValue > randmNumbers[col][grp][elm]) {
-                        minValue = randmNumbers[col][grp][elm];
+                    if (minValue > randomNumbers[col][grp][elm]) {
+                        minValue = randomNumbers[col][grp][elm];
                     }
                 }
             }
@@ -59,7 +59,7 @@ public class Aufgabe_1b_Three_Dimensions_Array {
         for (int col = 0; col < column; col++) {
             for (int grp = 0; grp < group; grp++) {
                 for (int elm = 0; elm < element; elm++) {
-                    if (randmNumbers[col][grp][elm] == minValue) {
+                    if (randomNumbers[col][grp][elm] == minValue) {
                         System.out.println("Column: " + col + " Group: " + grp + " Element " + elm);
                     }
                 }
