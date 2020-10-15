@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * verficicates the input, if its an input with M or T
+ * @author Kevin von Ballmoos
  */
 public class InputVerification {
 

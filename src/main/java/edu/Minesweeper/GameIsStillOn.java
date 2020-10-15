@@ -2,6 +2,7 @@ package edu.Minesweeper;
 
 /**
  * as long the user is not winning or loosing the game continues
+ * @author Kevin von Ballmoos
  */
 public class GameIsStillOn {
 

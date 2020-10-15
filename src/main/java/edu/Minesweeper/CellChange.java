@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * calculates the neighbours from the cell that is targedted
+ * @author Kevin von Ballmoos
  */
 public class CellChange {
 

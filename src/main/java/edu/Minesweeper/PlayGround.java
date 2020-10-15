@@ -5,6 +5,7 @@ import java.util.Random;
 
 /**
  * creates playground and fills the mines into it
+ * @author Kevin von Ballmoos
  */
 public class PlayGround {
 

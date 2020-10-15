@@ -2,6 +2,7 @@ package edu.Minesweeper;
 
 /**
  * validates the user input
+ * @author Kevin von Ballmoos
  */
 public class ValidateUserInput {
 

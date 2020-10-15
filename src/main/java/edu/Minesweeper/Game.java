@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * starts game
+ * @author Kevin von Ballmoos
  */
 public class Game {
     UserInput input = new UserInput();
@@ -19,12 +20,7 @@ public class Game {
 
         playGround.generatePlayGround();
         System.out.println(Arrays.deepToString(playGround.getPlayGroundArray())
-                .replace("[[", " ")
-                .replace("]]", " \n")
-                .replace("], [", " \n")
-                .replace("]", " ")
-                .replace(",", " ")
-                .replace("[", " "));
+                .replace("[[", "").replace("]]", " \n").replace("], [", " \n").replace("]", "").replace(",", " ").replace("[", ""));
 
 
         System.out.println("Type in your Commands: Target or Mark (no space):\n");

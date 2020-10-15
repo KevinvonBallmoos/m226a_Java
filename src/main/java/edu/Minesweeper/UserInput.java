@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /**
  * Creates a new Scanner object for taking in, the UserInput
+ * @author Kevin von Ballmoos
  */
 public class UserInput {
 
