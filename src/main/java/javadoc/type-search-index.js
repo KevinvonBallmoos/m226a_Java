@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"edu.Minesweeper","l":"CellChange"},{"p":"edu.Minesweeper","l":"Game"},{"p":"edu.Minesweeper","l":"GameIsStillOn"},{"p":"edu.Minesweeper","l":"InputVerification"},{"p":"edu.Minesweeper","l":"PlayGround"},{"p":"edu.Minesweeper","l":"UserInput"},{"p":"edu.Minesweeper","l":"ValidateUserInput"}]
