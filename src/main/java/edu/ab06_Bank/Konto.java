@@ -4,7 +4,7 @@ public class Konto {
 
     private double saldo;
     private double zinsSatz;
-    private String inhaber;
+    private final String inhaber;
 
     public Konto(double zinsSatz, String inhaber){
         this.zinsSatz = zinsSatz;
