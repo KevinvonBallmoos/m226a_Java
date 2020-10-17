@@ -1,4 +1,4 @@
-package edu.mastermind;
+package edu.Mastermind;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -24,6 +24,7 @@ public class Mastermind {
 
     public static void game() {
         randomcode();
+        System.out.println(Arrays.toString(randomColors));
 
         while (triesLeft > 0) {
             String input;
@@ -62,6 +63,7 @@ public class Mastermind {
      * Mastermind validating rules are:
      * 4 chars
      * colors and position matches with randomcode
+     *
      * @param input from userInput
      */
     public static boolean userInputvalidate(String input) {

@@ -5,22 +5,27 @@ public class Test_Konto {
 
     public static void main(String[] args) {
 
-        Konto a = new Konto();
-        Konto b = new Konto();
+        Kunde a = new Kunde("Meier");
+        Kunde b = new Kunde("Mayer");
 
 
-        b.einzahlung(720.50);
-        b.verzinsen(750);
+        Konto kA = new Konto(0.01, a.getNachname());
+        Konto kB = new Konto(0.01, b.getNachname());
 
-        System.out.println(b.getSaldo());
+        kA.einzahlen(500.75);
+        kA.verzinsen(365);
+        System.out.println("Der Kunde" + " " + kA.getInhaber() + " " + "hat ein Konto.");
+        System.out.println("Der Saldo des Kontos ist " + " " + kA.getSaldo());
 
-        b.einzahlung(300);
-        b.verzinsen(750);
-        System.out.println(b.getSaldo());
 
+        kB.einzahlen(720.50);
+        kB.verzinsen(750);
+        System.out.println("Der Kunde" + " " + kA.getInhaber() + " " + "hat ein Konto.");
+        System.out.println("Der Saldo des Kontos ist " + " " + kB.getSaldo());
 
-        a.einzahlung(500_001);
-        a.einzahlung(750);
-        System.out.println(a.getSaldo());
+        kB.einzahlen(450);
+        kB.verzinsen(250);
+        System.out.println("Der Saldo des Kontos ist " + " " + kB.getSaldo());
+
     }
 }

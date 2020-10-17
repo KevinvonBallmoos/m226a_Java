@@ -4,46 +4,52 @@ import java.util.Random;
 
 public class Aufgabe_1_XO {
 
-    public static char[] XO = new char[10];
-    public static int lengthOfArray = 10;
-
-    /**
-     * Creates random number
-     * Calculate where the position of the x is
-     * calls randomXO
-     * loop all 10 times
-     * print
-     */
+    private final int count = 10;
+    private int number;
+    private final char[] XO = new char[10];
 
     public static void main(String[] args) {
 
-        Random random = new Random();
+        Aufgabe_1_XO aufgabe1Xo = new Aufgabe_1_XO();
+        aufgabe1Xo.XO();
+    }
 
-        for (int row = 1; row <= lengthOfArray; row++) {
-            int rand = random.nextInt(4) + 1;
-            int countOfX = Math.floorDiv(lengthOfArray - 1, rand);
-            randomXO();
-            for (int x = 0; x < lengthOfArray; x += countOfX + 1) {
-                XO[x] = 'X';
-            }
+    public void XO() {
 
-            System.out.println("Zeile: " + row + " " + " Zufallszahl: " + rand + " " + " " + String.valueOf(XO));
+        for (int col = 1; col <= count; col++) {
+            randomNumber();
+            fillArrayWithO();
+            fillArrayWithX();
+            System.out.println("Column " + col + " " + " RandomNumber: " + number  + " " + String.valueOf(XO));
         }
+    }
 
+    /**
+     * generates random numbers between 1 and 4
+     */
+    public void randomNumber(){
+        Random random = new Random();
+        number = random.nextInt(4 )+1;
     }
 
     /**
      * fills the array XO with 'O'
      */
-    public static void randomXO() {
-
-        for (int o = 0; o < lengthOfArray; o++) {
-
+    public void fillArrayWithO(){
+        for (int o = 0; o < count; o++){
             XO[o] = 'O';
         }
-
     }
 
+    /**
+     * fills the array XO with count of 'X'
+     */
+    public void fillArrayWithX(){
 
+        int numberOfX = Math.floorDiv(count -1, number);
+        for (int x = 0; x < count; x+= numberOfX ){
+            XO[x] = 'X';
+        }
+    }
 }
 

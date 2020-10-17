@@ -2,30 +2,47 @@ package edu.ab06_Bank;
 
 public class Konto {
 
-    public double saldo;
-    private double zinssatz = 0.01;
+    private double saldo;
+    private double zinsSatz;
+    private final String inhaber;
 
-    public void einzahlung(double amount) {
-
-        this.saldo += amount;
+    public Konto(double zinsSatz, String inhaber){
+        this.zinsSatz = zinsSatz;
+        this.inhaber = inhaber;
     }
 
-    public void verzinsen(int days) {
+    public void einzahlen(double betrag){
+        saldo = saldo + betrag;
+    }
 
-        if (this.saldo > 50000 && this.saldo < 500000) {
-            this.zinssatz = this.zinssatz / 2;
-        } else if (this.saldo > 500000) {
-            this.zinssatz = 0;
+    public double getZinsSatz() {
+        zinsSatz = 0.01;
+        return zinsSatz;
+    }
+
+    /**
+     * Berechnet den Zins für eine bestimmte Laufzeit(in Tagen)
+     * und addiert diesen zum Saldo
+     * @param laufzeit = Zins in einer bestimmten Laufzeit
+     */
+    public void verzinsen(double laufzeit){
+
+        if(this.saldo > 50000 && this.saldo < 500000){
+            this.zinsSatz = this.zinsSatz / 2;
         }
+        else if (this.saldo > 500_000){
+            this.zinsSatz = 0;
+        }
+        this.saldo += this.saldo * this.zinsSatz * (laufzeit / 365);
 
-        this.saldo += this.saldo * zinssatz * days / 365;
     }
 
     public double getSaldo() {
-        return this.saldo;
+        return saldo;
+    }
+
+    public String getInhaber() {
+        return this.inhaber;
     }
 }
-
-
-
 

@@ -5,77 +5,65 @@ import java.util.Random;
 
 public class Aufgabe_1b_Three_Dimensions_Array {
 
-    public static int col = 6, group = 3, element = 4;
-    public static int[][][] randomNumbers = new int[col][group][element];
-    public static int minValue;
+    private final int column = 6, group = 3, element = 4;
+    private final int[][][] randomNumbers = new int[column][group][element];
+    Random random = new Random();
+    private int minValue;
 
     public static void main(String[] args) {
-        generateRandomNumbers();
-        System.out.println(Arrays.deepToString(randomNumbers)
-                .replace("[[[", " ( ").replace("]]]", " )")
-                .replace("]],", " )\n").replace("[[", "( ")
-                .replace("[", "( ").replace("]", " )")
-                .replace(',', ' '));
-
-        System.out.println("Minimum der Zahlen ist: " + minimumValue());
-
-        minValue = minimumValue();
-        minValueInArray();
+        Aufgabe_1b_Three_Dimensions_Array test = new Aufgabe_1b_Three_Dimensions_Array();
+        test.generateRandomNumbers();
+        test.minimumOfNumbers();
+        test.whereIsMinimum();
     }
 
     /**
      * fills the Array with random generating numbers
      */
-
-    public static void generateRandomNumbers() {
-        Random random = new Random();
-
-        for (int col1 = 0; col1 < col; col1++) {
-            for (int group1 = 0; group1 < group; group1++) {
-                for (int element1 = 0; element1 < element; element1++) {
-                    randomNumbers[col1][group1][element1] = random.nextInt(11) + 20;
+    public void generateRandomNumbers() {
+        for (int col = 0; col < column; col++) {
+            for (int grp = 0; grp < group; grp++) {
+                for (int elm = 0; elm < element; elm++) {
+                    randomNumbers[col][grp][elm] = random.nextInt(11) + 20;
                 }
             }
         }
-
+        System.out.println(Arrays.deepToString(randomNumbers)
+                .replace("[[[", " ( ").replace("]]]", " )")
+                .replace("]],", " )\n").replace("[[", "( ")
+                .replace("[", "( ").replace("]", " )")
+                .replace(',', ' '));
     }
 
     /**
-     * @return  minimum Value of the hole Array
+     * search the Array for the min Value
      */
-    public static int minimumValue() {
-
+    public void minimumOfNumbers() {
         minValue = randomNumbers[0][0][0];
-        for (int i = 0; i < col; i++) {
-            for (int j = 0; j < group; j++) {
-                for (int k = 0; k < element; k++) {
-                    if (minValue > randomNumbers[i][j][k]) {
-                        minValue = randomNumbers[i][j][k];
+        for (int col = 0; col < column; col++) {
+            for (int grp = 0; grp < group; grp++) {
+                for (int elm = 0; elm < element; elm++) {
+                    if (minValue > randomNumbers[col][grp][elm]) {
+                        minValue = randomNumbers[col][grp][elm];
                     }
                 }
             }
         }
-        return minValue;
+        System.out.println("Minimum of the numbers is: " + minValue + " on Position:");
     }
 
     /**
-     * Now the count of the minValue gets searched in the Array
+     * Find all the Positions of the minValue and print it
      */
-    public static void minValueInArray() {
-        int col2 = 0, group2 = 0, element2 = 0;
-
-        for (int i = 0; i < col; i++) {
-            for (int j = 0; j < group; j++) {
-                for (int k = 0; k < element; k++) {
-                    if (randomNumbers[i][j][k] == minValue) {
-                       col2 = i;
-                       group2 = j;
-                       element2 = k;
-
+    public void whereIsMinimum() {
+        for (int col = 0; col < column; col++) {
+            for (int grp = 0; grp < group; grp++) {
+                for (int elm = 0; elm < element; elm++) {
+                    if (randomNumbers[col][grp][elm] == minValue) {
+                        System.out.println("Column: " + col + " Group: " + grp + " Element " + elm);
                     }
                 }
             }
-            System.out.println("Zeile " + col2 + "  Gruppe " + group2 + "  Element " + element2);
         }
     }
 }
